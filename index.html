@@ -1,0 +1,1740 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Head of Data Analytics &middot; Sagan Passport</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --sp-primary: #2197ff;
+            --sp-primary-soft: #4dabff;
+            --sp-primary-deep: #0b7de0;
+            --sp-dark: #093a3e;
+            --sp-darker: #093a3e;
+            --sp-darkest: #093a3e;
+            --sp-gold: #f5b800;
+            --sp-white: #FFFFFF;
+            --sp-bg: #F9F7F2;
+            --sp-gray: #7B7B7B;
+            --sp-gray-light: #E7E7E7;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--sp-dark);
+            background: var(--sp-white);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ===== HERO ===== */
+        .hero {
+            background: var(--sp-dark);
+            color: var(--sp-white);
+            padding: 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -200px;
+            right: -200px;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(33,151,255,0.08) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .hero-top-bar {
+            background: var(--sp-primary);
+            height: 4px;
+            width: 100%;
+        }
+
+        .hero-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 60px 40px 70px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-brand {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 50px;
+            opacity: 0;
+            animation: fadeUp 0.8s ease forwards;
+        }
+
+        .hero-brand .logo-text {
+            font-family: 'Inter', sans-serif;
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: var(--sp-white);
+        }
+
+        .hero-brand .logo-accent {
+            width: 36px;
+            height: 3px;
+            background: var(--sp-primary);
+            border-radius: 2px;
+        }
+
+        .hero-brand .logo-by {
+            font-size: 12px;
+            color: rgba(255,255,255,0.28);
+            font-weight: 500;
+            letter-spacing: 0.3px;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(33, 151, 255, 0.10);
+            border: 1px solid rgba(33, 151, 255, 0.30);
+            color: var(--sp-primary-soft);
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            padding: 8px 20px;
+            border-radius: 100px;
+            margin-bottom: 28px;
+            opacity: 0;
+            animation: fadeUp 0.8s ease 0.15s forwards;
+        }
+
+        .hero h1 {
+            font-family: 'Inter', sans-serif;
+            font-size: 52px;
+            font-weight: 300;
+            line-height: 1.15;
+            letter-spacing: 0.5px;
+            margin-bottom: 24px;
+            opacity: 0;
+            animation: fadeUp 0.8s ease 0.3s forwards;
+        }
+
+        .hero h1 strong {
+            font-weight: 700;
+            color: var(--sp-primary-soft);
+        }
+
+        .hero-subtitle {
+            font-size: 16px;
+            font-weight: 400;
+            color: rgba(255, 255, 255, 0.55);
+            max-width: 640px;
+            line-height: 1.8;
+            opacity: 0;
+            animation: fadeUp 0.8s ease 0.45s forwards;
+        }
+
+        .hero-meta {
+            display: flex;
+            gap: 40px;
+            margin-top: 48px;
+            padding-top: 32px;
+            border-top: 1px solid rgba(255, 255, 255, 0.07);
+            opacity: 0;
+            animation: fadeUp 0.8s ease 0.6s forwards;
+            flex-wrap: wrap;
+        }
+
+        .hero-meta-item {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .hero-meta-label {
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--sp-primary-soft);
+        }
+
+        .hero-meta-value {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.7);
+            font-weight: 400;
+        }
+
+        /* ===== FADE-IN ===== */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ===== EDITORIAL ===== */
+        .editorial {
+            max-width: 780px;
+            margin: 0 auto;
+            padding: 80px 40px;
+        }
+
+        .editorial-label {
+            font-size: 10.5px;
+            font-weight: 700;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            color: var(--sp-primary);
+            margin-bottom: 20px;
+        }
+
+        .editorial h2 {
+            font-family: 'Inter', sans-serif;
+            font-size: 34px;
+            font-weight: 600;
+            letter-spacing: 0.3px;
+            margin-bottom: 28px;
+            color: var(--sp-dark);
+            line-height: 1.25;
+        }
+
+        .editorial p {
+            font-size: 16px;
+            line-height: 1.9;
+            color: var(--sp-gray);
+            margin-bottom: 22px;
+        }
+
+        .editorial p strong {
+            color: var(--sp-dark);
+            font-weight: 600;
+        }
+
+        .editorial-divider {
+            width: 48px;
+            height: 3px;
+            background: var(--sp-primary);
+            border-radius: 2px;
+            margin: 48px 0;
+        }
+
+        /* ===== CANDIDATE CARDS ===== */
+        .candidates-section {
+            background: var(--sp-bg);
+            padding: 80px 0;
+        }
+
+        .candidates-header {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 40px;
+            margin-bottom: 56px;
+        }
+
+        .candidates-header h2 {
+            font-family: 'Inter', sans-serif;
+            font-size: 34px;
+            font-weight: 600;
+            letter-spacing: 0.3px;
+            margin-bottom: 10px;
+        }
+
+        .candidates-header p {
+            font-size: 15px;
+            color: var(--sp-gray);
+        }
+
+        .candidate-card {
+            max-width: 1100px;
+            margin: 0 auto 40px;
+            padding: 0 40px;
+        }
+
+        .card {
+            background: var(--sp-white);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 8px 32px rgba(0,0,0,0.07);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 16px 48px rgba(0,0,0,0.11);
+        }
+
+        .card-top {
+            background: var(--sp-dark);
+            padding: 36px 44px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .card-identity {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .card-avatar {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: rgba(33, 151, 255, 0.10);
+            border: 2px solid rgba(33, 151, 255, 0.30);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Inter', sans-serif;
+            font-size: 19px;
+            font-weight: 600;
+            color: var(--sp-primary-soft);
+            flex-shrink: 0;
+            letter-spacing: 1px;
+        }
+
+        .card-name {
+            font-family: 'Inter', sans-serif;
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--sp-white);
+            letter-spacing: 0.5px;
+        }
+
+        .card-title {
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.4);
+            margin-top: 5px;
+            font-weight: 400;
+        }
+
+        .card-meta-right {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 10px;
+        }
+
+        .card-nickname {
+            font-size: 10px;
+            font-weight: 700;
+            color: var(--sp-gold);
+            background: rgba(245, 184, 0, 0.08);
+            border: 1px solid rgba(245, 184, 0, 0.22);
+            padding: 4px 12px;
+            border-radius: 100px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .card-location {
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.4);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .card-location::before {
+            content: '◎';
+            color: var(--sp-primary-soft);
+            font-size: 11px;
+        }
+
+        .card-body {
+            padding: 40px 44px 32px;
+        }
+
+        .card-narrative {
+            font-size: 15.5px;
+            line-height: 1.88;
+            color: var(--sp-gray);
+            margin-bottom: 26px;
+        }
+
+        .card-narrative strong {
+            color: var(--sp-dark);
+            font-weight: 600;
+        }
+
+        /* ===== SIGNAL TAGS ===== */
+        .signal-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 28px;
+        }
+
+        .signal-tag {
+            font-size: 11.5px;
+            font-weight: 600;
+            padding: 5px 12px;
+            border-radius: 6px;
+            background: #F0FDF4;
+            color: #166534;
+            border: 1px solid #BBF7D0;
+        }
+
+        .signal-tag.blue {
+            background: rgba(33, 151, 255, 0.06);
+            color: var(--sp-primary);
+            border-color: rgba(33, 151, 255, 0.20);
+        }
+
+        .signal-tag.sp {
+            background: rgba(33, 151, 255, 0.08);
+            color: #1a2c99;
+            border-color: rgba(33, 151, 255, 0.28);
+            font-weight: 700;
+        }
+
+        .signal-tag.amber {
+            background: #FFFBEB;
+            color: #92400E;
+            border-color: #FDE68A;
+        }
+
+        .signal-tag.gray {
+            background: #F9FAFB;
+            color: #374151;
+            border-color: #E5E7EB;
+        }
+
+        /* ===== STAT BOXES ===== */
+        .card-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 14px;
+            margin-bottom: 0;
+        }
+
+        .stat-box {
+            background: var(--sp-bg);
+            border-radius: 10px;
+            padding: 16px 20px;
+        }
+
+        .stat-label {
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--sp-gray);
+            margin-bottom: 6px;
+        }
+
+        .stat-value {
+            font-size: 14.5px;
+            font-weight: 700;
+            color: var(--sp-dark);
+        }
+
+        /* ===== DOC LINKS ===== */
+        .doc-links {
+            border-top: 1px solid var(--sp-gray-light);
+            padding: 20px 44px;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .doc-links-label {
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--sp-gray);
+            margin-right: 6px;
+            white-space: nowrap;
+        }
+
+        .doc-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--sp-dark);
+            text-decoration: none;
+            padding: 7px 14px;
+            border: 1.5px solid var(--sp-gray-light);
+            border-radius: 8px;
+            transition: all 0.2s ease;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .doc-link:hover {
+            border-color: var(--sp-primary);
+            color: var(--sp-primary);
+            background: rgba(33, 151, 255, 0.05);
+        }
+
+        .doc-link svg {
+            width: 13px;
+            height: 13px;
+            flex-shrink: 0;
+        }
+
+        /* ===== CLOSING ===== */
+        .closing {
+            max-width: 780px;
+            margin: 0 auto;
+            padding: 80px 40px;
+        }
+
+        .closing h2 {
+            font-family: 'Inter', sans-serif;
+            font-size: 30px;
+            font-weight: 600;
+            letter-spacing: 0.3px;
+            margin-bottom: 20px;
+        }
+
+        .closing p {
+            font-size: 16px;
+            line-height: 1.9;
+            color: var(--sp-gray);
+            margin-bottom: 20px;
+        }
+
+        .closing p strong {
+            color: var(--sp-dark);
+        }
+
+        /* ===== TEAM ===== */
+        .team-section {
+            background: var(--sp-bg);
+            padding: 80px 0;
+        }
+
+        .team-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        .team-section h2 {
+            font-family: 'Inter', sans-serif;
+            font-size: 32px;
+            font-weight: 600;
+            letter-spacing: 0.3px;
+            margin-bottom: 12px;
+        }
+
+        .team-subtitle {
+            font-size: 15px;
+            color: var(--sp-gray);
+            max-width: 600px;
+            margin-bottom: 48px;
+            line-height: 1.7;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-bottom: 56px;
+        }
+
+        .team-grid--solo {
+            grid-template-columns: 380px;
+            justify-content: center;
+        }
+
+        .team-card {
+            background: var(--sp-white);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 8px 24px rgba(0,0,0,0.06);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .team-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 12px 36px rgba(0,0,0,0.1);
+        }
+
+        .team-card-top {
+            height: 200px;
+            overflow: hidden;
+            background: var(--sp-dark);
+        }
+
+        .team-photo {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+            display: block;
+        }
+
+        .team-card-body {
+            padding: 24px;
+        }
+
+        .team-name {
+            font-family: 'Inter', sans-serif;
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--sp-dark);
+            margin-bottom: 4px;
+            letter-spacing: 0.3px;
+        }
+
+        .team-role {
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--sp-primary);
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            margin-bottom: 9px;
+        }
+
+        .team-location {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 12px;
+            color: var(--sp-gray);
+            margin-bottom: 12px;
+        }
+
+        .team-bio {
+            font-size: 13.5px;
+            line-height: 1.7;
+            color: var(--sp-gray);
+            margin-bottom: 16px;
+        }
+
+        .team-email {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--sp-primary);
+            text-decoration: none;
+        }
+
+        .team-email:hover {
+            text-decoration: underline;
+        }
+
+        /* ===== SAGAN BLOCK ===== */
+        .sagan-info {
+            display: flex;
+            align-items: flex-start;
+            gap: 32px;
+            background: var(--sp-dark);
+            border-radius: 16px;
+            padding: 40px 44px;
+            color: var(--sp-white);
+        }
+
+        .sagan-logo-mark {
+            width: 56px;
+            height: 56px;
+            background: var(--sp-primary);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Inter', sans-serif;
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--sp-white);
+            flex-shrink: 0;
+        }
+
+        .sagan-text h3 {
+            font-family: 'Inter', sans-serif;
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--sp-white);
+            margin-bottom: 10px;
+            letter-spacing: 0.3px;
+        }
+
+        .sagan-text p {
+            font-size: 14px;
+            color: rgba(255,255,255,0.5);
+            line-height: 1.75;
+            margin-bottom: 20px;
+        }
+
+        .sagan-text p strong {
+            color: rgba(255,255,255,0.82);
+        }
+
+        .sagan-stats {
+            display: flex;
+            gap: 32px;
+            flex-wrap: wrap;
+        }
+
+        .sagan-stat {
+            font-size: 13px;
+            color: rgba(255,255,255,0.4);
+        }
+
+        .sagan-stat strong {
+            color: var(--sp-primary-soft);
+            font-weight: 700;
+        }
+
+        /* ===== FOOTER CTA ===== */
+        .footer-cta {
+            background: var(--sp-dark);
+            text-align: center;
+            padding: 80px 40px;
+            color: var(--sp-white);
+        }
+
+        .footer-cta h2 {
+            font-family: 'Inter', sans-serif;
+            font-size: 38px;
+            font-weight: 300;
+            letter-spacing: 0.5px;
+            margin-bottom: 16px;
+        }
+
+        .footer-cta h2 strong {
+            font-weight: 700;
+        }
+
+        .footer-cta p {
+            font-size: 16px;
+            color: rgba(255,255,255,0.4);
+            margin-bottom: 36px;
+            max-width: 480px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.7;
+        }
+
+        .footer-contact {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--sp-primary);
+            color: var(--sp-white);
+            font-size: 14px;
+            font-weight: 700;
+            padding: 15px 32px;
+            border-radius: 100px;
+            text-decoration: none;
+            transition: background 0.2s ease, transform 0.2s ease;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .footer-contact:hover {
+            background: var(--sp-primary-deep);
+            transform: translateY(-1px);
+        }
+
+        .footer-bottom {
+            margin-top: 48px;
+            padding-top: 32px;
+            border-top: 1px solid rgba(255,255,255,0.06);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .footer-logo {
+            font-family: 'Inter', sans-serif;
+            font-size: 22px;
+            font-weight: 600;
+            color: rgba(255,255,255,0.7);
+            letter-spacing: 2px;
+        }
+
+        .footer-note {
+            font-size: 12px;
+            color: rgba(255,255,255,0.18);
+        }
+
+        /* ===== ANIMATIONS ===== */
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(16px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 34px; }
+            .hero-meta { gap: 24px; }
+            .hero-inner { padding: 40px 24px 50px; }
+            .card-top { flex-direction: column; gap: 20px; }
+            .card-meta-right { align-items: flex-start; }
+            .card-body, .card-top { padding: 28px; }
+            .doc-links { padding: 18px 28px; }
+            .card-stats { grid-template-columns: repeat(2, 1fr); }
+            .editorial, .closing { padding: 60px 24px; }
+            .candidate-card { padding: 0 16px; }
+            .candidates-header { padding: 0 16px; }
+            .team-grid { grid-template-columns: 1fr; }
+            .sagan-info { flex-direction: column; text-align: center; padding: 28px 24px; }
+            .sagan-stats { justify-content: center; }
+            .team-inner { padding: 0 24px; }
+        }
+
+        /* ===== COMPARISON TABLE ===== */
+        .comparison-section {
+            background: var(--sp-dark);
+            padding: 80px 40px;
+        }
+        .comparison-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        .comparison-section .editorial-label {
+            color: var(--sp-primary);
+        }
+        .comparison-section h2 {
+            color: var(--sp-white);
+            font-size: clamp(1.6rem, 3vw, 2.2rem);
+            font-weight: 700;
+            margin: 8px 0 40px;
+        }
+        .comparison-table-wrap {
+            overflow-x: auto;
+            border-radius: 12px;
+            border: 1px solid rgba(255,255,255,0.08);
+        }
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.88rem;
+        }
+        .comparison-table thead tr {
+            background: var(--sp-primary);
+        }
+        .comparison-table thead th {
+            color: #fff;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.72rem;
+            letter-spacing: 0.08em;
+            padding: 14px 18px;
+            text-align: left;
+            white-space: nowrap;
+        }
+        .comparison-table tbody tr {
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+            transition: background 0.15s;
+        }
+        .comparison-table tbody tr:last-child {
+            border-bottom: none;
+        }
+        .comparison-table tbody tr:hover {
+            background: rgba(33,151,255,0.06);
+        }
+        .comparison-table td {
+            padding: 16px 18px;
+            color: var(--sp-bg);
+            vertical-align: middle;
+            background: var(--sp-dark);
+        }
+        .comparison-table td:first-child {
+            font-weight: 700;
+            color: var(--sp-white);
+            white-space: nowrap;
+        }
+        .comp-nickname {
+            display: inline-block;
+            font-size: 0.72rem;
+            font-weight: 600;
+            color: var(--sp-primary);
+            background: rgba(33,151,255,0.12);
+            border: 1px solid rgba(33,151,255,0.25);
+            border-radius: 20px;
+            padding: 2px 10px;
+            margin-top: 4px;
+            white-space: nowrap;
+        }
+        .comp-stack {
+            color: var(--sp-gray);
+            font-size: 0.82rem;
+            line-height: 1.6;
+        }
+        .comp-signal {
+            font-size: 0.82rem;
+            color: var(--sp-bg);
+            line-height: 1.5;
+        }
+        @media (max-width: 768px) {
+            .comparison-section { padding: 60px 24px; }
+        }
+
+        </style>
+</head>
+<body>
+
+<!-- ===== HERO ===== -->
+<header class="hero">
+    <div class="hero-top-bar"></div>
+    <div class="hero-inner">
+        <div class="hero-brand">
+            <span class="logo-text">SAGAN</span>
+            <span class="logo-accent"></span>
+            <span class="logo-by">Sagan Passport</span>
+        </div>
+        <div class="hero-badge">Sagan Passport</div>
+        <h1>Your next<br><strong>Head of Data Analytics</strong><br>is in this shortlist.</h1>
+        <p class="hero-subtitle">Ten candidates. All screened, all assessed. Each one has spent time in environments where broken pipelines and unreliable reporting were costing real money. BigQuery, Python, custom API extraction, team leadership. It's all here.</p>
+        <div class="hero-meta">
+            <div class="hero-meta-item">
+                <span class="hero-meta-label">Role</span>
+                <span class="hero-meta-value">Head of Data Analytics</span>
+            </div>
+            <div class="hero-meta-item">
+                <span class="hero-meta-label">Candidates in Drop</span>
+                <span class="hero-meta-value">10</span>
+            </div>
+            <div class="hero-meta-item">
+                <span class="hero-meta-label">Core Requirements</span>
+                <span class="hero-meta-value">BigQuery &middot; Python &middot; API ETL &middot; Team Lead</span>
+            </div>
+            <div class="hero-meta-item">
+                <span class="hero-meta-label">Presented by</span>
+                <span class="hero-meta-value">Jesus Pacheco &middot; Sagan</span>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- ===== EDITORIAL INTRO ===== -->
+<section class="editorial fade-in">
+    <div class="editorial-label">A note on selection</div>
+    <h2>Your AMs are fixing dashboards every morning. That's a missing person problem.</h2>
+    <p>
+        Funnel.io disconnects. Supermetrics pulls stale data. A client asks for last week's numbers and someone on your team loses two hours chasing it down. It looks like a tooling problem. <strong>It's not. It's a missing infrastructure layer, and one person can fix it.</strong>
+    </p>
+    <p>
+        You need someone who can build API extractors directly into BigQuery, own the pipeline end to end, and get your Account Managers out of the reporting weeds so they can do actual client work. You also have a junior analytics team sitting at 0.5 that needs to get to 1. That means a technical lead who can set standards, review work, and develop the people who report to them.
+    </p>
+    <p>
+        We looked for that exact combination: people who have automated manual reporting that was costing hours, built connectors that don't break when the platform updates, and led junior analysts toward something more capable. <strong>Not just data people who know SQL. People who have been the upgrade in an analytics org before.</strong>
+    </p>
+    <div class="editorial-divider"></div>
+    <p>
+        Every candidate in this shortlist went through a full process: application review, screening interview, and a hands-on technical assessment designed around this specific setup. What you're looking at is what made it through all of that. Your match is in here.
+    </p>
+</section>
+
+<!-- ===== CANDIDATES ===== -->
+<section class="candidates-section">
+    <div class="candidates-header fade-in">
+        <h2>The Shortlist</h2>
+        <p>Ten candidates. All screened, assessed, and ready.</p>
+    </div>
+
+<!-- ===== RAFAEL R. ===== -->
+    <div class="candidate-card fade-in">
+        <div class="card">
+            <div class="card-top">
+                <div class="card-identity">
+                    <div class="card-avatar">RR</div>
+                    <div>
+                        <div class="card-name">Rafael R.</div>
+                        <div class="card-title">Data &amp; Analytics Lead &middot; Performance Marketing &middot; Nicaragua / Colombia</div>
+                    </div>
+                </div>
+                <div class="card-meta-right">
+                    <span class="card-nickname">The Unicorn</span>
+                    <span class="card-location">Nicaragua / Colombia</span>
+                </div>
+            </div>
+            <div class="card-body">
+                <p class="card-narrative">
+                    Rafael started without a formal CS degree and ended up building exactly the kind of data infrastructure that most performance marketing agencies are still piecing together. He taught himself Python because the third-party connectors kept breaking, then built the extractors himself. That's not a workaround. <strong>That's the same problem you're trying to solve right now, and he's already solved it.</strong>
+                </p>
+                <p class="card-narrative">
+                    He's grown analytics teams from 2 to 40 people and trained over 700 staff on data reporting and analytics workflows. He knows what it means to be the only technical person in a room full of marketers who just need the numbers to work, and he's built systems that made sure those people didn't have to ask him again.
+                </p>
+                <p class="card-narrative">
+                    His assessment for this role is a live GitHub dashboard. Real data. Clickable. Built specifically around performance marketing analytics. <strong>Not a deck, not a document. A working product.</strong> Click through it before you read anything else about him.
+                </p>
+                <div class="signal-row">
+                    <span class="signal-tag">Python &middot; Custom API Extractors</span>
+                    <span class="signal-tag">BigQuery &middot; Data Pipelines</span>
+                    <span class="signal-tag">Performance Marketing Analytics</span>
+                    <span class="signal-tag sp">Team 2 &rarr; 40 Analysts</span>
+                    <span class="signal-tag sp">700+ Staff Trained</span>
+                    <span class="signal-tag blue">SQL &middot; Data Modeling</span>
+                    <span class="signal-tag blue">ETL / ELT Automation</span>
+                    <span class="signal-tag amber">Nicaragua / Colombia (UTC-5 / UTC-5)</span>
+                </div>
+                <div class="card-stats">
+                    <div class="stat-box">
+                        <div class="stat-label">Team Built</div>
+                        <div class="stat-value">2 &rarr; 40 analysts</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-label">Staff Trained</div>
+                        <div class="stat-value">700+ people</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-label">Assessment</div>
+                        <div class="stat-value">Live GitHub dashboard</div>
+                    </div>
+                </div>
+            </div>
+            <div class="doc-links">
+                <span class="doc-links-label">Materials</span>
+                <a href="resume-rafael.html" target="_blank" class="doc-link">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+                    Resume
+                </a>
+            </div>
+        </div>
+    </div>
+<!-- ===== ANSELM N. ===== -->
+    <div class="candidate-card fade-in">
+        <div class="card">
+            <div class="card-top">
+                <div class="card-identity">
+                    <div class="card-avatar">AN</div>
+                    <div>
+                        <div class="card-name">Anselm N.</div>
+                        <div class="card-title">Senior Data Scientist / BI Lead &middot; Banking &amp; Humanitarian Data &middot; Kenya</div>
+                    </div>
+                </div>
+                <div class="card-meta-right">
+                    <span class="card-nickname">The Data Veteran</span>
+                    <span class="card-location">Kenya</span>
+                </div>
+            </div>
+            <div class="card-body">
+                <p class="card-narrative">
+                    Anselm spent 15 years at Barclays and Absa Bank Kenya building the kind of data infrastructure that can't afford to be wrong. Financial services data has to be accurate, documented, auditable, and on time. He worked under that bar for a decade and a half, and it shows in how he approaches problems.
+                </p>
+                <p class="card-narrative">
+                    He drove KES 800 million in loan disbursements through ML models, which means he's built systems that make actual business decisions. He also automated 974 manual reports down to 182. <strong>That's an 81% reduction in reporting overhead, and that's exactly the kind of work your Account Managers need someone to do with your current reporting stack.</strong> He's now at UNHCR managing humanitarian data while finishing an MSc in Big Data Analytics at the University of East London.
+                </p>
+                <p class="card-narrative">
+                    BigQuery, Redshift, Python, Power BI, Tableau, Hadoop, Spark. His stack is current and production-proven, not just a list on a CV. He knows BigQuery well enough to model data that actually performs under scale. <strong>That matters a lot for where the analytics function is going.</strong>
+                </p>
+                <div class="signal-row">
+                    <span class="signal-tag">BigQuery &middot; Redshift</span>
+                    <span class="signal-tag">Python &middot; SQL &middot; ML Models</span>
+                    <span class="signal-tag">Power BI &middot; Tableau</span>
+                    <span class="signal-tag sp">974 &rarr; 182 Reports Automated</span>
+                    <span class="signal-tag sp">KES 800M via ML</span>
+                    <span class="signal-tag blue">Hadoop &middot; Spark &middot; MLOps</span>
+                    <span class="signal-tag blue">Barclays &middot; Absa &middot; UNHCR</span>
+                    <span class="signal-tag amber">Kenya (UTC+3)</span>
+                </div>
+                <div class="card-stats">
+                    <div class="stat-box">
+                        <div class="stat-label">Experience</div>
+                        <div class="stat-value">15 years in data</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-label">Reports Automated</div>
+                        <div class="stat-value">974 &rarr; 182</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-label">Loan Disbursements</div>
+                        <div class="stat-value">KES 800M via ML</div>
+                    </div>
+                </div>
+            </div>
+            <div class="doc-links">
+                <span class="doc-links-label">Materials</span>
+                <a href="resume-anselm.html" target="_blank" class="doc-link">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+                    Resume
+                </a>
+            </div>
+        </div>
+    </div>
+<!-- ===== DAVID F. ===== -->
+    <div class="candidate-card fade-in">
+        <div class="card">
+            <div class="card-top">
+                <div class="card-identity">
+                    <div class="card-avatar">DF</div>
+                    <div>
+                        <div class="card-name">David F.</div>
+                        <div class="card-title">Data Lead / Analytics Architect &middot; Enterprise Tech &middot; Brazil</div>
+                    </div>
+                </div>
+                <div class="card-meta-right">
+                    <span class="card-nickname">The Strategic Architect</span>
+                    <span class="card-location">Brazil</span>
+                </div>
+            </div>
+            <div class="card-body">
+                <p class="card-narrative">
+                    David brings 15 years of data work with a CS degree and an MBA on top. He spent significant time at BairesDev, which means he's operated in fast-moving, client-facing technical environments where both delivery and communication have to be right. His academic background as a former professor means he can explain complex systems to people who don't build them, which matters a lot for an analytics lead working alongside non-technical Account Managers.
+                </p>
+                <p class="card-narrative">
+                    What makes David stand out is his 3-Layer Audit approach: before touching anything, he maps what exists, what's broken, and what's being built on top of it. <strong>For a company that has accumulated data debt across Funnel.io, Supermetrics, and whatever custom work your team has built over the years, that discipline prevents a new hire from making things worse while trying to fix them.</strong>
+                </p>
+                <p class="card-narrative">
+                    His assessment walks through exactly how he'd structure the data infrastructure from day one. <strong>Read the assessment before the interview.</strong> It tells you more than the CV does.
+                </p>
+                <div class="signal-row">
+                    <span class="signal-tag">BigQuery &middot; Data Modeling</span>
+                    <span class="signal-tag">Python &middot; SQL &middot; ETL</span>
+                    <span class="signal-tag">CS + MBA Background</span>
+                    <span class="signal-tag sp">3-Layer Audit Methodology</span>
+                    <span class="signal-tag sp">15 Years Experience</span>
+                    <span class="signal-tag blue">BairesDev</span>
+                    <span class="signal-tag blue">Team Development</span>
+                    <span class="signal-tag amber">Brazil (UTC-3)</span>
+                </div>
+                <div class="card-stats">
+                    <div class="stat-box">
+                        <div class="stat-label">Experience</div>
+                        <div class="stat-value">15 years</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-label">Background</div>
+                        <div class="stat-value">CS + MBA</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-label">Approach</div>
+                        <div class="stat-value">3-Layer Audit</div>
+                    </div>
+                </div>
+            </div>
+            <div class="doc-links">
+                <span class="doc-links-label">Materials</span>
+                <a href="resume-david.html" target="_blank" class="doc-link">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+                    Resume
+                </a>
+            </div>
+        </div>
+    </div>
+<!-- ===== JOSEPH W. ===== -->
+    <div class="candidate-card fade-in">
+        <div class="card">
+            <div class="card-top">
+                <div class="card-identity">
+                    <div class="card-avatar">JW</div>
+                    <div>
+                        <div class="card-name">Joseph W.</div>
+                        <div class="card-title">Data Engineer / Analytics Lead &middot; Civil Engineering Background &middot; Kenya</div>
+                    </div>
+                </div>
+                <div class="card-meta-right">
+                    <span class="card-nickname">The Structural Specialist</span>
+                    <span class="card-location">Kenya</span>
+                </div>
+            </div>
+            <div class="card-body">
+                <p class="card-narrative">
+                    Joseph came into data from civil engineering, which sounds like an odd path until you understand what civil engineers actually do: they design structures that carry load without collapsing. That's what Joseph does with data architecture. He thinks about foundations, lineage, and what happens to a pipeline when the source changes. <strong>He doesn't build things that break when Funnel.io has an outage. He builds things that account for the outage.</strong>
+                </p>
+                <p class="card-narrative">
+                    His DBT work is serious. He cares about documentation, about knowing where every number in a dashboard came from, about building transformation layers that your junior analysts can work inside without creating silent errors. He has a strong data integrity instinct, not as a personality quirk, as a professional standard. That's what makes the difference between a BigQuery setup that lasts two years and one that needs to be rebuilt every six months.
+                </p>
+                <p class="card-narrative">
+                    He submitted two videos: a general intro and a deeper dive into how he'd approach the role specifically. <strong>Watch the second one.</strong> It shows how he thinks when given a real problem to solve.
+                </p>
+                <div class="signal-row">
+                    <span class="signal-tag">DBT &middot; BigQuery</span>
+                    <span class="signal-tag">Data Lineage &middot; Data Modeling</span>
+                    <span class="signal-tag">Python &middot; SQL</span>
+                    <span class="signal-tag sp">Data Integrity Focus</span>
+                    <span class="signal-tag sp">Structural Thinker</span>
+                    <span class="signal-tag blue">ETL / ELT Pipelines</span>
+                    <span class="signal-tag blue">Analytics Engineering</span>
+                    <span class="signal-tag amber">Kenya (UTC+3)</span>
+                </div>
+                <div class="card-stats">
+                    <div class="stat-box">
+                        <div class="stat-label">Background</div>
+                        <div class="stat-value">Civil Eng &rarr; Data</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-label">Core Stack</div>
+                        <div class="stat-value">DBT &middot; BigQuery &middot; Python</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-label">Focus</div>
+                        <div class="stat-value">Lineage + integrity</div>
+                    </div>
+                </div>
+            </div>
+            <div class="doc-links">
+                <span class="doc-links-label">Materials</span>
+                <a href="resume-joseph.html" target="_blank" class="doc-link">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+                    Resume
+                </a>
+            </div>
+        </div>
+    </div>
+
+<!-- ===== BYRONE O. ===== -->
+    <div class="candidate-card fade-in">
+        <div class="card">
+            <div class="card-top">
+                <div class="card-identity">
+                    <div class="card-avatar">BO</div>
+                    <div>
+                        <div class="card-name">Byrone O.</div>
+                        <div class="card-title">BI Analyst Manager &middot; Pricing &amp; Revenue Analytics &middot; Kenya</div>
+                    </div>
+                </div>
+                <div class="card-meta-right">
+                    <span class="card-nickname">The Commercial Builder</span>
+                    <span class="card-location">Kenya</span>
+                </div>
+            </div>
+            <div class="card-body">
+                <p class="card-narrative">
+                    Byrone studied Actuarial Science, which means he was trained to build models that price risk for a living. That quantitative foundation changes how you approach analytics work. You don't just measure what happened. You build the structure that explains why it happened and what happens next.
+                </p>
+                <p class="card-narrative">
+                    At Capwell Industries, he owns the analytics layer for a commercial operation: pricing models, sales performance tracking, and automated dashboards that executives actually use to make decisions. His stack is SQL, Python, Power BI, and Google Sheets, and his work connects sales data directly to financial outcomes. Customer retention and forecasting are part of his day-to-day, not theoretical projects on a CV.
+                </p>
+                <p class="card-narrative">
+                    What makes him relevant is his first-principles approach to metrics. He doesn't inherit someone else's setup and run reports on top of it. He maps the core business drivers first, then builds the measurement layer around those. <strong>If your Funnel.io and Supermetrics stack is giving Account Managers unreliable data, Byrone is the kind of hire who audits what's broken, understands the commercial logic underneath it, and rebuilds it correctly.</strong>
+                </p>
+                <div class="signal-row">
+                    <span class="signal-tag">SQL &middot; Python</span>
+                    <span class="signal-tag">Power BI &middot; Google Sheets</span>
+                    <span class="signal-tag sp">Pricing Models</span>
+                    <span class="signal-tag sp">Revenue Analytics</span>
+                    <span class="signal-tag blue">Actuarial Science Background</span>
+                    <span class="signal-tag blue">Customer Retention &middot; Forecasting</span>
+                    <span class="signal-tag blue">Capwell Industries</span>
+                    <span class="signal-tag amber">Kenya (UTC+3)</span>
+                </div>
+                <div class="card-stats">
+                    <div class="stat-box">
+                        <div class="stat-label">Experience</div>
+                        <div class="stat-value">5+ years in data</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-label">Current Role</div>
+                        <div class="stat-value">BI Analyst Manager</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-label">Focus</div>
+                        <div class="stat-value">Pricing &amp; Revenue</div>
+                    </div>
+                </div>
+            </div>
+            <div class="doc-links">
+                <span class="doc-links-label">Materials</span>
+                <a href="resume-byrone.html" target="_blank" class="doc-link">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+                    Resume
+                </a>
+            </div>
+        </div>
+    </div>
+
+<!-- ===== PHELISA S. ===== -->
+    <div class="candidate-card fade-in">
+        <div class="card">
+            <div class="card-top">
+                <div class="card-identity">
+                    <div class="card-avatar">PJ</div>
+                    <div>
+                        <div class="card-name">Phelisa S.</div>
+                        <div class="card-title">Analytics Engineer | Metrics &amp; Data Infrastructure &middot; Kenya</div>
+                    </div>
+                </div>
+                <div class="card-meta-right">
+                    <span class="card-nickname">The Metric Builder</span>
+                    <span class="card-location">Kenya</span>
+                </div>
+            </div>
+            <div class="card-body">
+                <p class="card-narrative">
+                    Phelisa built everything at Antara Health from zero. Not "improved existing dashboards" -- she walked into a company with no analytics infrastructure and built the metrics layer from scratch. Utilization tracking, client health scoring, retention models, performance dashboards. All constructed from first principles, integrated across five data sources, and documented so they could actually scale.
+                </p>
+                <p class="card-narrative">
+                    The numbers are specific: data accuracy went from 82% to 97% after she audited 200+ gaps in the existing metric logic. The Task Supervision Dashboard she built in Tableau eliminated manual spreadsheet work entirely and saved supervisors 80% of their time. Stakeholder dashboard adoption went from 40% to 85%. That's not someone who puts dashboards together. That's someone who builds systems people trust and use.
+                </p>
+                <p class="card-narrative">
+                    Her stack is SQL, dbt, Google Sheets, and Tableau -- built under real production conditions, not side projects. She also partnered with engineering to ship the MyHealth metrics visualization feature, which increased app engagement by 25%. <strong>She's the kind of hire who audits what exists, documents what's broken, and builds the foundation that everything else can sit on top of.</strong>
+                </p>
+                <div class="signal-row">
+                    <span class="signal-tag">SQL &middot; dbt &middot; Dimensional Modeling</span>
+                    <span class="signal-tag">Tableau &middot; Google Sheets</span>
+                    <span class="signal-tag">Metric Building (0-to-1)</span>
+                    <span class="signal-tag sp">82% &rarr; 97% Data Accuracy</span>
+                    <span class="signal-tag sp">80% Reporting Time Saved</span>
+                    <span class="signal-tag blue">AkiraChix &middot; DataCamp</span>
+                    <span class="signal-tag blue">Antara Health</span>
+                    <span class="signal-tag amber">Kenya (UTC+3)</span>
+                </div>
+                <div class="card-stats">
+                    <div class="stat-box">
+                        <div class="stat-label">Data Accuracy</div>
+                        <div class="stat-value">82% &rarr; 97%</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-label">Reporting Time Saved</div>
+                        <div class="stat-value">80%</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-label">Dashboards Built</div>
+                        <div class="stat-value">12+ metric models</div>
+                    </div>
+                </div>
+            </div>
+            <div class="doc-links">
+                <span class="doc-links-label">Materials</span>
+                <a href="resume-phelisa.html" target="_blank" class="doc-link">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+                    Resume
+                </a>
+            </div>
+        </div>
+    </div>
+<!-- ===== MARCIA L. ===== -->
+    <div class="candidate-card fade-in">
+        <div class="card">
+            <div class="card-top">
+                <div class="card-identity">
+                    <div class="card-avatar">ML</div>
+                    <div>
+                        <div class="card-name">Marcia L.</div>
+                        <div class="card-title">Head of Data &amp; Analytics | Data Infrastructure &middot; Brazil</div>
+                    </div>
+                </div>
+                <div class="card-meta-right">
+                    <span class="card-nickname">The Ecosystem Architect</span>
+                    <span class="card-location">Brazil</span>
+                </div>
+            </div>
+            <div class="card-body">
+                <p class="card-narrative">
+                    Marcia has spent eight years doing what most companies still treat as a future project: building data infrastructure that actually works. She doesn't optimize existing pipelines. She walks into situations where there's no architecture and builds it. BigQuery, dbt, Snowflake. She knows how to stand up a data ecosystem from scratch and make it reliable enough that teams stop questioning the numbers.
+                </p>
+                <p class="card-narrative">
+                    The clearest signal is the Sinch engagement: she re-architected their data models and reduced processing from 11 TB down to 316 MB. That's a 98% reduction, and it wasn't a refactor project. It was a complete rethink of how the data was structured. At Placer.ai, she automated forecasting models that saved the GTM team 16 hours every week. At Clearwater, she built the company's first production dashboards from scratch. This is the pattern.
+                </p>
+                <p class="card-narrative">
+                    Her Google Sheets depth is 8+ years of real, advanced use: not the kind of "proficient in Excel" that ends up meaning pivot tables. She builds financial models, commissions frameworks, and forecasting systems in Sheets that actually run operations. <strong>If you need someone who can fix broken reporting infrastructure, build reliable metric models, and do it without being hand-held, Marcia has done all of this before.</strong>
+                </p>
+                <div class="signal-row">
+                    <span class="signal-tag">BigQuery &middot; dbt &middot; Snowflake</span>
+                    <span class="signal-tag">Advanced SQL &middot; Google Sheets</span>
+                    <span class="signal-tag">8+ Years Experience</span>
+                    <span class="signal-tag sp">11TB &rarr; 316MB Optimized</span>
+                    <span class="signal-tag sp">16 hrs/week Saved</span>
+                    <span class="signal-tag blue">Clearwater &middot; Sinch &middot; Placer.ai</span>
+                    <span class="signal-tag blue">Cadastra &middot; Pattern Brands</span>
+                    <span class="signal-tag amber">Brazil (UTC-3)</span>
+                </div>
+                <div class="card-stats">
+                    <div class="stat-box">
+                        <div class="stat-label">Data Reduction</div>
+                        <div class="stat-value">11 TB &rarr; 316 MB</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-label">GTM Time Saved</div>
+                        <div class="stat-value">16 hrs/week</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-label">Experience</div>
+                        <div class="stat-value">8+ years</div>
+                    </div>
+                </div>
+            </div>
+            <div class="doc-links">
+                <span class="doc-links-label">Materials</span>
+                <a href="resume-marcia.html" target="_blank" class="doc-link">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+                    Resume
+                </a>
+            </div>
+        </div>
+    </div>
+<!-- ===== JUAN PABLO A. ===== -->
+    <div class="candidate-card fade-in">
+        <div class="card">
+            <div class="card-top">
+                <div class="card-identity">
+                    <div class="card-avatar">JP</div>
+                    <div>
+                        <div class="card-name">Juan Pablo A.</div>
+                        <div class="card-title">Data Architect | Full-Stack Data Infrastructure &middot; Colombia</div>
+                    </div>
+                </div>
+                <div class="card-meta-right">
+                    <span class="card-nickname">The Full-Stack Architect</span>
+                    <span class="card-location">Colombia</span>
+                </div>
+            </div>
+            <div class="card-body">
+                <p class="card-narrative">
+                    Juan Pablo has been doing full end-to-end data architecture for 8 years. At Epic Gardening, he designed the entire data stack from scratch: integrated Google Ads and Meta into a Snowflake Lakehouse following a medallion architecture, built the ELT pipelines with Python and AWS Glue, and created the dashboards in Power BI and Tableau. One person, entire stack, built for an e-commerce company reporting at an executive level.
+                </p>
+                <p class="card-narrative">
+                    He has a Snowflake Pro Associate Certification and has been working in Snowflake and BigQuery in production. His SQL is advanced, his Python is applied to real pipeline work, and he has hands-on experience with dbt-style transformation models and data governance including lineage tracking and role-based access control. The tooling aligns directly with what you need.
+                </p>
+                <p class="card-narrative">
+                    What makes Juan Pablo different from most analytics hires is the business foundation. He studied Business Administration before building data systems, which means he starts from the business question, not the data available. <strong>That's exactly how you want someone approaching your reporting infrastructure: what decision does this metric enable? What's broken? What do we build first?</strong>
+                </p>
+                <div class="signal-row">
+                    <span class="signal-tag">Snowflake (Pro Certified) &middot; BigQuery</span>
+                    <span class="signal-tag">Python &middot; SQL &middot; dbt</span>
+                    <span class="signal-tag">Power BI &middot; Tableau</span>
+                    <span class="signal-tag sp">Full Data Architecture (0-to-1)</span>
+                    <span class="signal-tag sp">ELT Pipelines &middot; AWS Glue &middot; NiFi</span>
+                    <span class="signal-tag blue">Epic Gardening &middot; Cosmoflower</span>
+                    <span class="signal-tag blue">MSc Data Science (In Progress)</span>
+                    <span class="signal-tag amber">Colombia (UTC-5)</span>
+                </div>
+                <div class="card-stats">
+                    <div class="stat-box">
+                        <div class="stat-label">Experience</div>
+                        <div class="stat-value">8+ years</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-label">Certification</div>
+                        <div class="stat-value">Snowflake Pro Associate</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-label">Approach</div>
+                        <div class="stat-value">Full-stack (0-to-1)</div>
+                    </div>
+                </div>
+            </div>
+            <div class="doc-links">
+                <span class="doc-links-label">Materials</span>
+                <a href="resume-juanpablo.html" target="_blank" class="doc-link">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+                    Resume
+                </a>
+            </div>
+        </div>
+    </div>
+<!-- ===== ANTONIO P. ===== -->
+    <div class="candidate-card fade-in">
+        <div class="card">
+            <div class="card-top">
+                <div class="card-identity">
+                    <div class="card-avatar">AP</div>
+                    <div>
+                        <div class="card-name">Antonio P.</div>
+                        <div class="card-title">Head of Data &amp; Analytics | 20+ Years &middot; CoE Analytics Founder &middot; Portugal</div>
+                    </div>
+                </div>
+                <div class="card-meta-right">
+                    <span class="card-nickname">The Analytics Pioneer</span>
+                    <span class="card-location">Portugal</span>
+                </div>
+            </div>
+            <div class="card-body">
+                <p class="card-narrative">
+                    Antonio founded the Center of Excellence in Analytics for Itau Bank, the largest private bank in Brazil. He didn't join an existing team. He built the team, defined the charter, and established data utilization standards from scratch. That work earned Itau Bank the Best Use of Data Global award at the Banking Tech Awards in 2019. That's the career behind this application.
+                </p>
+                <p class="card-narrative">
+                    At Idera, he redesigned the Travis CI data warehouse, built a churn prediction dashboard, implemented user engagement tracking via Pendo, and drove a 301% increase in free trial conversions QoQ through a combination of new pricing plans and improved onboarding analytics. He also reduced AWS cloud costs by 29% and grew Assembla's MRR by 6.8% in a single quarter. These are product-and-data outcomes, not just reporting wins.
+                </p>
+                <p class="card-narrative">
+                    Twenty years of experience gives you something that's hard to hire for: the ability to look at a broken data setup and know exactly what the problem is before you start fixing it. Antonio has seen every variation of this. <strong>He knows how to build infrastructure that senior stakeholders trust, how to manage analytics teams, and how to connect data work to business outcomes that show up in revenue.</strong>
+                </p>
+                <div class="signal-row">
+                    <span class="signal-tag">Power BI &middot; Looker &middot; SQL</span>
+                    <span class="signal-tag">Churn Modeling &middot; KPI Frameworks</span>
+                    <span class="signal-tag">20+ Years Experience</span>
+                    <span class="signal-tag sp">Best Use of Data Award (Banking Tech 2019)</span>
+                    <span class="signal-tag sp">301% Free Trial Conversion QoQ</span>
+                    <span class="signal-tag sp">Founded CoE Analytics (Itau Bank)</span>
+                    <span class="signal-tag blue">Idera &middot; CI&amp;T &middot; Tillster</span>
+                    <span class="signal-tag amber">Portugal (UTC+0)</span>
+                </div>
+                <div class="card-stats">
+                    <div class="stat-box">
+                        <div class="stat-label">Experience</div>
+                        <div class="stat-value">20+ years</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-label">Best Achievement</div>
+                        <div class="stat-value">Best Use of Data Global 2019</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-label">Conversion Impact</div>
+                        <div class="stat-value">+301% free trials</div>
+                    </div>
+                </div>
+            </div>
+            <div class="doc-links">
+                <span class="doc-links-label">Materials</span>
+                <a href="resume-antonio.html" target="_blank" class="doc-link">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+                    Resume
+                </a>
+            </div>
+        </div>
+    </div>
+
+<!-- ===== RAFAEL RP ===== -->
+    <div class="candidate-card fade-in">
+        <div class="card">
+            <div class="card-top">
+                <div class="card-identity">
+                    <div class="card-avatar">RP</div>
+                    <div>
+                        <div class="card-name">Rafael P.</div>
+                        <div class="card-title">Analytics &amp; Planning Manager &middot; Operations &amp; LATAM Analytics &middot; Brazil</div>
+                    </div>
+                </div>
+                <div class="card-meta-right">
+                    <span class="card-nickname">The Operations Builder</span>
+                    <span class="card-location">Brazil</span>
+                </div>
+            </div>
+            <div class="card-body">
+                <p class="card-narrative">
+                    Rafael spent 10 years doing analytics for operations at companies that don't tolerate guesswork: Mercado Livre, British American Tobacco, JDE, Hendrix Genetics. Every single role, he walked in and built the infrastructure from scratch. Predictive models, KPI frameworks, executive dashboards. By the time he left Mercado Livre, his analytics stack was covering LATAM operations across 5 countries and being consumed by VPs and C-level for CAPEX decisions.
+                </p>
+                <p class="card-narrative">
+                    At Mercado Livre, he built a Python/SQL predictive model from scratch with automated database integration that replaced a manual spreadsheet process entirely, covering daily, hourly, and long-term horizons across Brazil, Mexico, Argentina, Chile, and Colombia. At Hendrix Genetics, he built analytics infrastructure in the middle of COVID-19, the Russia-Ukraine war, and an avian flu outbreak in Europe, while keeping 10%+ year-on-year volume growth on track.
+                </p>
+                <p class="card-narrative">
+                    His stack is SQL/BigQuery, Python, Power BI, Looker, and R, all production-proven at scale. MBA in Data Science from USP, fluent English, advanced Spanish. <strong>His combination of technical depth, operations analytics background, and the track record of building frameworks that senior stakeholders actually use is exactly what the Head of Data Analytics role needs.</strong>
+                </p>
+                <div class="signal-row">
+                    <span class="signal-tag">BigQuery &middot; SQL &middot; Python</span>
+                    <span class="signal-tag">Power BI &middot; Looker &middot; R</span>
+                    <span class="signal-tag sp">5-Country LATAM Analytics</span>
+                    <span class="signal-tag sp">Mercado Livre &middot; BAT &middot; JDE</span>
+                    <span class="signal-tag blue">MBA Data Science (USP)</span>
+                    <span class="signal-tag blue">Operations &middot; Supply Chain &middot; FMCG</span>
+                    <span class="signal-tag amber">Brazil (UTC-3)</span>
+                </div>
+                <div class="card-stats">
+                    <div class="stat-box">
+                        <div class="stat-label">Experience</div>
+                        <div class="stat-value">10+ years</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-label">LATAM Coverage</div>
+                        <div class="stat-value">5 countries</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-label">Top Company</div>
+                        <div class="stat-value">Mercado Livre</div>
+                    </div>
+                </div>
+            </div>
+            <div class="doc-links">
+                <span class="doc-links-label">Materials</span>
+                <a href="resume-rafaelrp.html" target="_blank" class="doc-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+                    Resume
+                </a>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+<!-- ===== COMPARISON TABLE ===== -->
+<section class="comparison-section fade-in">
+    <div class="comparison-inner">
+        <div class="editorial-label">Side by side</div>
+        <h2>Candidate Comparison</h2>
+        <div class="comparison-table-wrap">
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Candidate</th>
+                        <th>Location</th>
+                        <th>Experience</th>
+                        <th>Core Stack</th>
+                        <th>Standout Signal</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            Rafael R.<br>
+                            <span class="comp-nickname">The Unicorn</span>
+                        </td>
+                        <td>Nicaragua / Colombia<br><span style="color:var(--sp-gray);font-size:0.8rem;">UTC-5</span></td>
+                        <td>8+ years</td>
+                        <td class="comp-stack">BigQuery &middot; Python &middot; SQL<br>Looker &middot; GA4 &middot; dbt</td>
+                        <td class="comp-signal">Built team 2&rarr;40 analysts. Trained 700+ staff. Live dashboard as assessment.</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Anselm N.<br>
+                            <span class="comp-nickname">The Data Veteran</span>
+                        </td>
+                        <td>Kenya<br><span style="color:var(--sp-gray);font-size:0.8rem;">UTC+3</span></td>
+                        <td>15 years</td>
+                        <td class="comp-stack">BigQuery &middot; Redshift &middot; Python<br>Power BI &middot; Tableau &middot; Spark</td>
+                        <td class="comp-signal">974&rarr;182 reports automated (81% reduction). KES 800M loan disbursements via ML. Barclays &amp; Absa Bank.</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            David F.<br>
+                            <span class="comp-nickname">The Strategic Architect</span>
+                        </td>
+                        <td>Brazil<br><span style="color:var(--sp-gray);font-size:0.8rem;">UTC-3</span></td>
+                        <td>15 years</td>
+                        <td class="comp-stack">Python &middot; SQL &middot; BigQuery<br>Power BI &middot; Tableau</td>
+                        <td class="comp-signal">3-Layer Audit methodology. CS degree + MBA. Former professor. BairesDev background.</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Joseph W.<br>
+                            <span class="comp-nickname">The Structural Specialist</span>
+                        </td>
+                        <td>Kenya<br><span style="color:var(--sp-gray);font-size:0.8rem;">UTC+3</span></td>
+                        <td>6+ years</td>
+                        <td class="comp-stack">dbt &middot; BigQuery &middot; Python<br>SQL &middot; Airflow</td>
+                        <td class="comp-signal">Civil engineering background. Precision-first approach to data lineage and integrity.</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Byrone O.<br>
+                            <span class="comp-nickname">The Commercial Builder</span>
+                        </td>
+                        <td>Kenya<br><span style="color:var(--sp-gray);font-size:0.8rem;">UTC+3</span></td>
+                        <td>5+ years</td>
+                        <td class="comp-stack">SQL &middot; Python &middot; Power BI<br>Google Sheets</td>
+                        <td class="comp-signal">Actuarial Science background. Pricing models + revenue analytics. First-principles metrics builder.</td>
+                    </tr>
+                    <tr>
+                        <td>Phelisa S.<br><span class="comp-nickname">The Metric Builder</span></td>
+                        <td>Kenya<br><span style="color:var(--sp-gray);font-size:0.8rem;">UTC+3</span></td>
+                        <td>3+ years</td>
+                        <td class="comp-stack">SQL &middot; dbt &middot; Tableau<br>Google Sheets &middot; BigQuery</td>
+                        <td class="comp-signal">Data accuracy 82%&rarr;97%. 80% reporting time saved. 12+ metric models built at Antara Health.</td>
+                    </tr>
+                    <tr>
+                        <td>Marcia L.<br><span class="comp-nickname">The Ecosystem Architect</span></td>
+                        <td>Brazil<br><span style="color:var(--sp-gray);font-size:0.8rem;">UTC-3</span></td>
+                        <td>8+ years</td>
+                        <td class="comp-stack">BigQuery &middot; dbt &middot; Snowflake<br>Advanced SQL &middot; Python &middot; Looker</td>
+                        <td class="comp-signal">11 TB &rarr; 316 MB data optimization (98% reduction). 16 hrs/week saved. GTM + SaaS track record.</td>
+                    </tr>
+                    <tr>
+                        <td>Juan Pablo A.<br><span class="comp-nickname">The Full-Stack Architect</span></td>
+                        <td>Colombia<br><span style="color:var(--sp-gray);font-size:0.8rem;">UTC-5</span></td>
+                        <td>8+ years</td>
+                        <td class="comp-stack">Snowflake &middot; BigQuery &middot; dbt<br>Python &middot; Power BI &middot; Tableau</td>
+                        <td class="comp-signal">Snowflake Pro Certified. Built Lakehouse from scratch (medallion architecture). MBA + MSc Data Science.</td>
+                    </tr>
+                    <tr>
+                        <td>Antonio P.<br><span class="comp-nickname">The Analytics Pioneer</span></td>
+                        <td>Portugal<br><span style="color:var(--sp-gray);font-size:0.8rem;">UTC+0</span></td>
+                        <td>20+ years</td>
+                        <td class="comp-stack">Power BI &middot; Looker &middot; SQL<br>Snowflake &middot; AWS &middot; Pendo</td>
+                        <td class="comp-signal">Founded CoE Analytics for Itau Bank. Best Use of Data Global Award 2019. 301% free trial conversion QoQ.</td>
+                    </tr>
+                    <tr>
+                        <td>Rafael P.<br><span class="comp-nickname">The Operations Builder</span></td>
+                        <td>Brazil<br><span style="color:var(--sp-gray);font-size:0.8rem;">UTC-3</span></td>
+                        <td>10+ years</td>
+                        <td class="comp-stack">BigQuery &middot; SQL &middot; Python<br>Power BI &middot; Looker &middot; R</td>
+                        <td class="comp-signal">5-country LATAM analytics at Mercado Livre. MBA Data Science (USP). Operations + supply chain depth.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+<section class="closing fade-in">
+    <div class="editorial-label">What's next</div>
+    <h2>Let me know who you want to meet first.</h2>
+    <p>
+        All ten are available and moving quickly. Tell me who you want to schedule and I'll have the interviews set up within 24 hours. Rafael's live dashboard is the fastest gut-check on fit, but all of them are worth the conversation.
+    </p>
+    <p>
+        All ten candidates are fully packaged and ready. Each one has their resume in the links above.
+    </p>
+</section>
+
+<!-- ===== TEAM ===== -->
+<section class="team-section fade-in">
+    <div class="team-inner">
+        <div class="editorial-label">Your Dedicated Team</div>
+        <h2>Meet the Recruiting Team</h2>
+        <p class="team-subtitle">This search is led by a dedicated team that understands your business and what a real fit looks like. Not just someone who can do the job, someone who can own it.</p>
+
+        <div class="team-grid team-grid--solo">
+            <div class="team-card">
+                <div class="team-card-top">
+                    <img class="team-photo" src="https://saganrecruitment.com/wp-content/uploads/2025/10/Jesus-Pacheco.jpeg" alt="Jes&uacute;s Pacheco">
+                </div>
+                <div class="team-card-body">
+                    <div class="team-name">Jes&uacute;s Pacheco</div>
+                    <div class="team-role">Head of Revenue</div>
+                    <div class="team-location">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                        Mendoza, Argentina
+                    </div>
+                    <p class="team-bio">Leads the Passport Hiring team at Sagan. MIT Supply Chain credential. Has placed candidates across data, marketing, and operations roles for US clients and built the process behind this shortlist.</p>
+                    <a href="mailto:jesus.p@getsagan.com" class="team-email">jesus.p@getsagan.com</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="sagan-info">
+            <div class="sagan-logo-mark">S</div>
+            <div class="sagan-text">
+                <h3>Powered by Sagan</h3>
+                <p>Sagan connects professionals from <strong>Latin America, Africa, Asia, the Middle East, Central and Eastern Europe, and more</strong> with US companies. We run a curated, high-touch process from sourcing to placement, and stay accountable to the outcome on both sides.</p>
+                <div class="sagan-stats">
+                    <div class="sagan-stat"><strong>20,000</strong> Applications / Month</div>
+                    <div class="sagan-stat"><strong>2,000+</strong> Placements</div>
+                    <div class="sagan-stat"><strong>30+</strong> Countries</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== FOOTER CTA ===== -->
+<section class="footer-cta fade-in">
+    <h2>Ready to <strong>get this role filled?</strong></h2>
+    <p>Tell me who you want to meet and I'll have the first interview scheduled within 24 hours.</p>
+    <a href="mailto:jesus.p@getsagan.com" class="footer-contact">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        Contact Jesus &middot; Schedule Interviews
+    </a>
+    <div class="footer-bottom">
+        <div class="footer-logo">SAGAN</div>
+        <div class="footer-note">Prepared by Sagan Passport &middot; April 2026</div>
+    </div>
+</section>
+
+<script>
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, {
+        threshold: 0.08,
+        rootMargin: '0px 0px -40px 0px'
+    });
+
+    document.querySelectorAll('.fade-in').forEach(el => {
+        observer.observe(el);
+    });
+</script>
+
+</body>
+</html>
